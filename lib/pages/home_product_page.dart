@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
-import 'home_banner_page.dart';
-import '../services/product.dart';
 import '../model/product.dart';
+import '../utils/utils.dart';
+import 'product_detail_page.dart';
 
 class HomeProductPage extends StatelessWidget {
   final ProductListModel listData;
@@ -11,10 +10,7 @@ class HomeProductPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double deviceWidth = MediaQuery
-        .of(context)
-        .size
-        .width;
+    double deviceWidth = MediaQuery.of(context).size.width;
     return Container(
       width: deviceWidth,
       color: Colors.white,
@@ -27,23 +23,44 @@ class HomeProductPage extends StatelessWidget {
     double itemWidth = deviceWidth * 168.5 / 360;
     double imageHeight = deviceWidth * 110.0 / 360;
     List<Widget> listWidgets = listData.data.map((item) {
-      return Container(
-        width: itemWidth,
-        margin: EdgeInsets.only(left: 2,bottom: 5),
-        padding:  EdgeInsets.only(left: 13,bottom: 7,top: 10,right: 10),
-        color: Colors.blue,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(item.name,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontSize: 15,color: Colors.white),),
-            Text(item.desc,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontSize: 15,color: Colors.white),),
-            Container(
-              alignment:Alignment(0,0) ,
-              margin: EdgeInsets.only(top: 5),
-              child: Image.asset(item.imageUrl,width: itemWidth,height: imageHeight),
-            ),
-          ],
-
+      var bgColor = String2Color("#f8f8f8");
+      var titileColor = String2Color("#db5d41");
+      var subtitileColor = String2Color("#999999");
+      return GestureDetector(
+        onTap: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => ProductDetailPage(item: item)));
+        },
+        child: Container(
+          width: itemWidth,
+          margin: EdgeInsets.only(left: 2, bottom: 5),
+          padding: EdgeInsets.only(left: 13, bottom: 7, top: 10, right: 10),
+          color: bgColor,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                item.name,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(fontSize: 15, color: titileColor),
+              ),
+              Text(
+                item.desc,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(fontSize: 15, color: subtitileColor),
+              ),
+              Container(
+                alignment: Alignment(0, 0),
+                margin: EdgeInsets.only(top: 5),
+                child: Image.asset(item.imageUrl,
+                    width: itemWidth, height: imageHeight),
+              ),
+            ],
+          ),
         ),
       );
     }).toList();
@@ -52,10 +69,13 @@ class HomeProductPage extends StatelessWidget {
       children: [
         Container(
           padding: EdgeInsets.only(left: 5, bottom: 8),
-          child: Text("最新产品", style: TextStyle(
+          child: Text(
+            "最新产品",
+            style: TextStyle(
               fontSize: 16.0,
               color: Color.fromRGBO(51, 51, 51, 1),
-          ),),
+            ),
+          ),
         ),
         Wrap(
           spacing: 2,
