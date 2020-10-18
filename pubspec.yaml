@@ -26,6 +26,7 @@ dependencies:
   cupertino_icons: ^1.0.0
   http: ^0.12.2
   flutter_webview_plugin: ^0.3.11
+  flutter_swiper: ^1.1.6
 
 dev_dependencies:
   flutter_test:
@@ -43,8 +44,16 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/loading.jpeg
-
-
+    - assets/images/banners/1.jpeg
+    - assets/images/banners/2.jpeg
+    - assets/images/banners/3.jpeg
+    - assets/images/banners/4.jpeg
+    - assets/images/products/1.jpeg
+    - assets/images/products/2.jpeg
+    - assets/images/products/3.jpeg
+    - assets/images/products/4.jpeg
+    - assets/images/products/5.jpeg
+    - assets/images/products/6.jpeg
 
 
 

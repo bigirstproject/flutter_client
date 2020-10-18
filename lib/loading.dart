@@ -12,7 +12,7 @@ class _LoadingPageState extends State<LoadingPage> {
     super.initState();
     Future.delayed(Duration(seconds:3),(){
      print("flutter企业站启动");
-     Navigator.of(context).pushReplacementNamed("company_info");
+     Navigator.of(context).pushReplacementNamed("app");
     });
   }
 
