@@ -21,25 +21,25 @@ class _AppState extends State<App> {
     switch (_currentIndex) {
       case 0:
         if (homePage == null) {
-          return new HomePage();
+          homePage = new HomePage();
         }
         return homePage;
         break;
       case 1:
-        if (newsPage == null) {
-          return new NewsPage();
-        }
-        return newsPage;
-        break;
-      case 2:
         if (productPage == null) {
-          return new ProductPage();
+          productPage = new ProductPage();
         }
         return productPage;
         break;
+      case 2:
+        if (newsPage == null) {
+          newsPage = new NewsPage();
+        }
+        return newsPage;
+        break;
       case 3:
         if (aboutUsPage == null) {
-          return new AboutUsPage();
+          aboutUsPage = new AboutUsPage();
         }
         return aboutUsPage;
         break;
@@ -71,6 +71,7 @@ class _AppState extends State<App> {
         onTap: ((index) {
           setState(() {
             _currentIndex = index;
+//            this._currentIndex = index;
           });
         }),
         //底部导航栏
