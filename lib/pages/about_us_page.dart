@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'about_contact_page.dart';
 
 class AboutUsPage extends StatefulWidget {
   @override
@@ -6,7 +7,6 @@ class AboutUsPage extends StatefulWidget {
 }
 
 class _AboutUsPageState extends State<AboutUsPage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,6 +41,17 @@ class _AboutUsPageState extends State<AboutUsPage> {
             leading: Icon(Icons.message),
             title: Text("联系我们"),
             onTap: () {},
+          ),
+          Divider(
+            height: 10,
+            color: Colors.grey,
+          ),
+          ListTile(
+            leading: Icon(Icons.message),
+            title: Text("给我留言"),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>AboutContactPage()));
+            },
           ),
           Divider(
             height: 10,
