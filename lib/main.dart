@@ -20,7 +20,7 @@ void main() {
                 icon: Icon(Icons.home),
                 onPressed: () {
                   print("公司介绍onPressed");
-                  Navigator.of(context).pushReplacementNamed("App");
+                  Navigator.of(context).pop("company_info");
                 },
               ),
             ),
